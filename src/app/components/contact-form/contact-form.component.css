@@ -1,0 +1,13 @@
+/* input .ng-touched .ng-invalid{
+    border: 2px solid red;
+} */
+ input.ng-invalid.ng-touched{
+    border: 2px red solid ;
+    /* width: min-content; */
+}
+textarea.ng-invalid.ng-touched{
+    border: 2px red solid ;
+}
+.error-text span{
+    color: red;;
+}

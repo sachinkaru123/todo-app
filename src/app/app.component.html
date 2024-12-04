@@ -1,0 +1,66 @@
+<div class="container-fluid main-content">
+  <h2 class="text-center bg-success text-white">Grocery Store</h2>
+
+  <div class="row ">
+    <section [ngClass]="showContent? 'col-md-7': 'col-md-12'">
+      <div class="product-header">
+        <h1>product List</h1>
+        <button *ngIf="!showContent" type="button" class="btn btn-outline-primary" (click)="showAddProducts()">
+          show Products
+        </button>
+
+        <button *ngIf="showContent" type="button" class="btn btn-outline-primary" (click)="hideAddProducts()">
+          Hide Products
+        </button>
+      </div>
+      <div class="container">
+        <div class="table">
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Phone number</th>
+              <th>Discription</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th [hidden]="rowIndex==-1">Action</th>
+            </tr>
+            <tr *ngFor="let product of products let i = index" (click)="selectProduct(i)"
+              [ngClass]="rowIndex== i ? 'active' : ''">
+              <td>{{product.id}}</td>
+              <td>{{product.productName}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.brand}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.manufacturedDate }}</td>
+              <td>
+                <!-- <p *ngIf="product.unitPrice >1000 " class="bg-danger text-white">Product is expensive</p>
+                <p *ngIf="product.unitPrice < 1000" class="bg-success text-white">Product is Good</p> -->
+              </td>
+              <td>
+
+                <button type="button" [hidden]="rowIndex != i">
+                  <fa-icon [icon]="faPencil"></fa-icon>
+                </button>
+
+                <button [hidden]="rowIndex != i">
+                  <fa-icon [icon]="faEye"></fa-icon>
+                </button>
+
+              </td>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="col-md-5" *ngIf="showContent">
+      <app-add-product></app-add-product>
+    </section>
+  </div>
+
+  <section class="cform container ">
+    <contact-form></contact-form>
+  </section>
+</div>

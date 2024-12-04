@@ -1,0 +1,16 @@
+.active td{
+    background-color: rgb(93, 75, 255);
+    color: #ffffff;
+}
+tr td{
+    cursor: pointer;
+}
+
+.product-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
